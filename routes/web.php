@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/usuarios', 'UsuarioController@index')->middleware('primeiro', 'segundo');
+
+Route::get('/terceiro', function () {
+    return 'Passou pelo terceiro middleware';
+})->middleware('terceiro:joao,20');
